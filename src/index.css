@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Same palette as verifynumber.in: emerald "verified" on midnight navy. */
+  --color-brand-50: #ecfdf7;
+  --color-brand-100: #d1faec;
+  --color-brand-200: #a7f3da;
+  --color-brand-300: #6ee7c1;
+  --color-brand-400: #34d3a3;
+  --color-brand-500: #10b98a;
+  --color-brand-600: #059670;
+  --color-brand-700: #04775b;
+  --color-brand-800: #065f4a;
+  --color-brand-900: #064e3e;
+
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1a2335;
+  --color-ink-900: #0e1526;
+  --color-ink-925: #0a1020;
+  --color-ink-950: #060a16;
+
+  --animate-fade-in: fade-in 0.35s ease-out both;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply min-h-screen bg-ink-950 font-sans text-ink-200 antialiased;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 100%);
+}
+
+.panel {
+  @apply rounded-2xl border border-white/[0.07] bg-white/[0.025] shadow-[0_20px_50px_-30px_rgba(0,0,0,0.7)];
+}
+
+.switch {
+  @apply relative h-5 w-9 cursor-pointer appearance-none rounded-full bg-ink-700 transition;
+}
+.switch::before {
+  content: "";
+  @apply absolute left-0.5 top-0.5 h-4 w-4 rounded-full bg-white shadow transition;
+}
+.switch:checked {
+  @apply bg-brand-500;
+}
+.switch:checked::before {
+  transform: translateX(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
