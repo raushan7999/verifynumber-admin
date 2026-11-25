@@ -110,6 +110,8 @@ export type InboundMessage = {
   body: string;
   received_at: string;
   verification_id: number | null;
+  /** request_id (UUIDv7) of the verification this message matched, if any. */
+  request_id: string | null;
   created_at: string;
 };
 

@@ -48,7 +48,7 @@ export default function Messages() {
           <Empty>No messages received yet.</Empty>
         </div>
       ) : (
-        <Table head={["Received", "From", "To SIM", "Message", "Match"]}>
+        <Table head={["Received", "From", "To SIM", "Message", "Match", "Request ID"]}>
           {rows?.map((m) => (
             <tr key={m.id} className="transition hover:bg-white/[0.02]">
               <Td>{fmtTime(m.received_at)}</Td>
@@ -56,6 +56,7 @@ export default function Messages() {
               <Td className="font-mono text-xs">{m.sim_phone ?? `device ${m.device_id} · sub ${m.subscription_id}`}</Td>
               <Td className="max-w-xs truncate text-ink-200">{m.body}</Td>
               <Td>{m.verification_id ? <Badge tone="green">Verified</Badge> : <Badge>Unmatched</Badge>}</Td>
+              <Td className="font-mono text-xs select-all">{m.request_id ?? "—"}</Td>
             </tr>
           ))}
         </Table>
