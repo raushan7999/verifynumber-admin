@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Devices from "./pages/Devices";
 import Enrollment from "./pages/Enrollment";
 import Messages from "./pages/Messages";
+import Email from "./pages/Email";
 
 function NotFound() {
   return (
@@ -31,6 +32,7 @@ createRoot(document.getElementById("root")!).render(
             <Route index element={<Devices />} />
             <Route path="enrollment" element={<Enrollment />} />
             <Route path="messages" element={<Messages />} />
+            <Route path="email" element={<Email />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

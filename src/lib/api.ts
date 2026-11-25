@@ -113,6 +113,30 @@ export type InboundMessage = {
   created_at: string;
 };
 
+export type EmailConfig = {
+  configured: boolean;
+  senders: string[];
+  from_name: string;
+};
+
+export type OutboundEmail = {
+  id: number;
+  sent_by: number | null;
+  sent_by_email: string | null;
+  from: string;
+  to: string[];
+  cc: string[];
+  bcc: string[];
+  reply_to: string;
+  subject: string;
+  body: string;
+  is_html: boolean;
+  status: "sent" | "failed";
+  provider_message_id: string;
+  error: string;
+  created_at: string;
+};
+
 // ---- formatting ----
 
 export function fmtTime(iso: string | null | undefined): string {

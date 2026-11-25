@@ -9,6 +9,7 @@ const nav: { to: string; label: string; icon: IconName }[] = [
   { to: "/", label: "Devices & SIMs", icon: "devices" },
   { to: "/enrollment", label: "Enrollment codes", icon: "key" },
   { to: "/messages", label: "Inbound messages", icon: "inbox" },
+  { to: "/email", label: "Send email", icon: "mail" },
 ];
 
 export default function Shell() {

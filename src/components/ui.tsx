@@ -18,6 +18,8 @@ const paths = {
   bolt: "M13 2L4.5 13.5H12L11 22l8.5-11.5H12L13 2z",
   shield: "M12 3l7.5 3v5.5c0 4.6-3.2 8.6-7.5 9.5-4.3-.9-7.5-4.9-7.5-9.5V6L12 3z",
   copy: "M9 9h11v11H9zM5 15H4V4h11v1",
+  mail: "M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zM3.5 6.5L12 13l8.5-6.5",
+  send: "M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z",
 } as const;
 export type IconName = keyof typeof paths;
 
@@ -70,6 +72,18 @@ export function Button({ variant = "primary", className, ...p }: ComponentProps<
 export function Input({ className, ...p }: ComponentProps<"input">) {
   return (
     <input
+      className={cx(
+        "w-full rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white placeholder:text-ink-500 transition focus:border-brand-400/60 focus:bg-white/[0.06] focus:outline-none focus:ring-4 focus:ring-brand-400/10",
+        className,
+      )}
+      {...p}
+    />
+  );
+}
+
+export function Textarea({ className, ...p }: ComponentProps<"textarea">) {
+  return (
+    <textarea
       className={cx(
         "w-full rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white placeholder:text-ink-500 transition focus:border-brand-400/60 focus:bg-white/[0.06] focus:outline-none focus:ring-4 focus:ring-brand-400/10",
         className,
